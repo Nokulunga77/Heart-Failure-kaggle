@@ -289,7 +289,9 @@ def main():
 			
 
 
-			data = {'age': age, 'sex': sex, 'cp': cp,'trestbps': trestbps, 'chol': chol, 'fastingBS': fastingBS, 'restingecg': restingecg, 'maxhr': maxhr, 'exang': exang, 'oldpeak': oldpeak, 'slope': slope}
+			data = {'Age': age, 'Sex': sex, 'ChestPainType': cp,'RestingBP': trestbps, 'Cholesterol': chol, 
+			'fastingBS': fastingBS, 'RestingECG': restingecg, 'MaxHR': maxhr, 'ExerciseAngina': exang, 'Oldpeak': oldpeak, 'ST_slope': slope}
+			
 			features = pd.DataFrame(data, index=[0])
 
 			return features
@@ -297,7 +299,23 @@ def main():
 		df = user_input_features()
 		st.subheader('Given Inputs : ')
 		st.write(df)
+		
+		st.write("""**If you're satisfied with the inputs, click Classify to get your results**""")
+		
 
+		if st.button("Classify"):
+			# Transforming user input with vectorizer
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+			result = "rfc_model.pkl"
+			predictor = joblib.load(open(os.path.join(result),"rb"))
+			prediction = predictor.predict(df)
+
+			#output = model.predict(df)
+
+			
+
+			st.success("You are Categorized as: {}".format(prediction))
     
 
     
