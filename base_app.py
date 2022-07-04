@@ -87,7 +87,7 @@ def main():
 
 	# Buidling out the "Main" page
 	if selection == "Main":
-		st.title("Heart Failure:")
+		st.title("Heart Failure")
 		st.image('https://images.ctfassets.net/yixw23k2v6vo/6BezXYKnMqcG4LSEcWyXlt/b490656e99f34bc18999f3563470eae6/iStock-1156928054.jpg?fm=webp&fit=thumb&q=65&w=864&h=576', use_column_width=False)
 		st.markdown("""
 		Created by:
@@ -184,7 +184,7 @@ def main():
 			predictor = joblib.load(open(os.path.join(result),"rb"))
 			prediction = predictor.predict(df)
 			
-			if prediction == 0:
+			if prediction == 1:
 				st.success("You are likely to suffer from heart disease")
 			else:
 			        st.success("You are less likely to suffer from heart disease")
