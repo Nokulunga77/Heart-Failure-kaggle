@@ -185,9 +185,9 @@ def main():
 			prediction = predictor.predict(df)
 			
 			if prediction == 1:
-				st.success("You are likely to suffer from heart failure")
+				st.success("You are likely to suffer from heart disease")
 			else:
-			        st.success("You are less likely to suffering from heart failure")
+			        st.success("You are less likely to suffer from heart disease")
     
 
     
