@@ -129,51 +129,40 @@ def main():
 		def user_input_features():
 			st.write("""**1. Select Age :**""") 
 			age = st.slider('', 0, 100, 25)
-			st.write("""**You selected this option **""",age)
 
 			st.write("""**2. Select Gender :**""")
 			sex = st.selectbox("(1=Male, 0=Female)",["1","0"])
-			st.write("""**You selected this option **""",sex)
 
 			st.write("""**3. Select Chest Pain Type :**""")
 			cp = st.selectbox("(0 = Typical Angina, 1 = Atypical Angina, 2 = Non—anginal Pain, 3 = Asymptotic) : ",["0","1","2","3"])
-			st.write("""**You selected this option **""",cp)
 
 			st.write("""**4. Select Resting Blood Pressure :**""")
-			trestbps = st.slider('In mm/Hg unit', 0, 200, 110)
-			st.write("""**You selected this option **""",trestbps)
+			restbps = st.slider('In mm/Hg unit', 0, 200, 110)
 
 			st.write("""**5. Select Serum Cholesterol :**""")
 			chol = st.slider('In mg/dl unit', 0, 600, 115)
-			st.write("""**You selected this option **""",chol)
 
 			st.write("""**6. Select Fasting Blood Sugar :**""")
 			fastingBS = st.selectbox("(0 =lower than 120mg/ml, 1 = Greater than 120mg/ml)",["0", "1"])
-			st.write("""**You selected this option **""",fastingBS)
-
+		
 			st.write("""**7. Selecting RestingECG :**""")
 			restingecg= st.selectbox("(3 = Normal, 1.5 = ST, 1 = LVH])",["3","1.5", "1"])
-			st.write("""**You selected this option **""",restingecg)
 
 			st.write("""**8. Maximum Heart Rate Achieved:**""")
 			maxhr = st.slider('', 0, 202, 60)
-			st.write("""**You selected this option **""",maxhr)
 
 			st.write("""**9. Exercise Induced Angina (Pain in chest while exersice) :**""")
 			exang = st.selectbox("(1=Yes, 0=No)",["1","0"])
-			st.write("""**You selected this option **""",exang)
 			
 			st.write("""**10. Oldpeak (ST depression induced by exercise relative to rest) :**""")
 			oldpeak = float(st.slider('', 0.0, 10.0, 2.0))
-			st.write("""**You selected this option **""",oldpeak)
 
 			st.write("""**11. Slope (The slope of the peak exercise ST segment) :**""")
 			slope = st.selectbox(" 1 = up, 2 = flat, 0 = down )",["1","2","0"])
-			st.write("""**You selected this option **""",slope)
 			
 
 
-			data = {'Age': age, 'Sex': sex, 'ChestPainType': cp,'RestingBP': trestbps, 'Cholesterol': chol, 
+			data = {'Age': age, 'Sex': sex, 'ChestPainType': cp,'RestingBP': restbps, 'Cholesterol': chol, 
 			'fastingBS': fastingBS, 'RestingECG': restingecg, 'MaxHR': maxhr, 'ExerciseAngina': exang, 'Oldpeak': oldpeak, 'ST_slope': slope}
 			
 			features = pd.DataFrame(data, index=[0])
