@@ -184,7 +184,7 @@ def main():
 			predictor = joblib.load(open(os.path.join(result),"rb"))
 			prediction = predictor.predict(df)
 			
-			if prediction == 1:
+			if prediction == 0:
 				st.success("You are likely to suffer from heart disease")
 			else:
 			        st.success("You are less likely to suffer from heart disease")
