@@ -188,11 +188,6 @@ def main():
 				st.success("You are likely to suffer from heart failure")
 			else:
 			        st.success("You are less likely to suffering from heart failure")
-			#output = model.predict(df)
-
-			
-
-			st.success("You are Categorized as: {}".format(prediction))
     
 
     
