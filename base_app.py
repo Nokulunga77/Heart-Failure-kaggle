@@ -183,7 +183,11 @@ def main():
 			result = "rfc_model.pkl"
 			predictor = joblib.load(open(os.path.join(result),"rb"))
 			prediction = predictor.predict(df)
-
+			
+			if prediction == 1:
+				st.success("You are likely to suffer from heart failure")
+			else:
+			        st.success("You are less likely to suffering from heart failure")
 			#output = model.predict(df)
 
 			
