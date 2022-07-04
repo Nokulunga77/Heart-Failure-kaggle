@@ -123,7 +123,7 @@ def main():
 	
 	# Buidling out the "prediction" page
 	if selection == "Predictions":
-		st.title("Predictions:")
+		st.title("Predictions")
 		st.subheader("In this section the user will input their information:")
 
 		def user_input_features():
