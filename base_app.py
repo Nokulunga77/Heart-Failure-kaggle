@@ -87,7 +87,7 @@ def main():
 
 	# Buidling out the "Main" page
 	if selection == "Main":
-		st.title("Heart Failure")
+		st.title("Heart Failure Prediction")
 		st.image('https://images.ctfassets.net/yixw23k2v6vo/6BezXYKnMqcG4LSEcWyXlt/b490656e99f34bc18999f3563470eae6/iStock-1156928054.jpg?fm=webp&fit=thumb&q=65&w=864&h=576', use_column_width=False)
 		st.markdown("""
 		Created by:
