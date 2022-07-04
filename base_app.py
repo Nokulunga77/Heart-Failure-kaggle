@@ -1,13 +1,4 @@
 """
-    Simple Streamlit webserver application for serving developed classification
-	models.
-    Author: Explore Data Science Academy.
-    Note:
-    ---------------------------------------------------------------------
-    Please follow the instructions provided within the README.md file
-    located within this directory for guidance on how to use this script
-    correctly.
-    ---------------------------------------------------------------------
     Description: This file is used to launch a minimal streamlit web
 	application. You are expected to extend the functionality of this script
 	as part of your predict project.
@@ -106,8 +97,6 @@ def main():
 		
 	
 	
-	
-	
 	# Building out the "Information" page
 	if selection == "Understand your data":
 		#st.title("(EDA), understanding the data!")
@@ -130,112 +119,7 @@ def main():
 		""")
 
 		
-	# Building out the predication page
-	if selection == "Modelling":
-		st.title("Modelling:")
-		st.image('Images/perform.jpg', use_column_width=False)
-		st.subheader("From here we can see the different models we used as well as how they performed:")
 		
-		st.header('Each model that we use, with their positives and negatives:')
-
-		col1, col2, col3, col4 = st.columns(4)
-
-		with col1:
-			st.header('Logistic Regression')
-			st.info('''
-			Positives:
-			* Is easier to impliment, interpret, and very efficient to train .
-			* It makes no assumptionsof classes in feature space .
-			* It can easily extend to multiple classes(multinomial regression) and a natural probabilistic view of class predictions. 
-			
-			Negatives:
-			* If the number of observations is lesser than the number of features, Logistic Regression should not be used, otherwise, it may lead to overfitting.
-			* It constructs linear boundaries.
-			* The major limitation is the assumption of linearity between the dependent variable and the independent variables.
-			''')
-
-		with col2:
-			st.header('Random Forest Classifier')
-			st.info('''
-			Positives:
-			* Can be used to solve both classification as well as regression problems.
-			* Works well with both categorical and continuous variables.
-			* It creates as many trees on the subset of the data and combines the output of all the trees. In this way it reduces overfitting problem in decision trees and also reduces the variance and therefore improves the accuracy.
-			
-			Negatives:
-			* Complexity is increase because it creates multiple trees and combines their outputs
-			* Training period takes longer because it takes a majority of the votes from the trees
-			''')
-
-		with col3:
-			st.header('Linear Support Vector Classification')
-			st.info('''
-			Positives:
-			* Works relatively well when there is a clear margin of separation between classes.
-			* Is more effective in high dimensional spaces.
-			* Is effective in cases where the number of dimensions is greater than the number of samples. 
-			
-			Negatives:
-			* Algorithm is not suitable for large data sets.
-			* Does not perform very well when the data set has more noise i.e. target classes are overlapping.
-			* In cases where the number of features for each data point exceeds the number of training data samples, the SVC will underperform.
-			''')
-
-		with col4:
-			st.header('XGBClassifier')
-			st.info('''
-			Positives:
-			* Less feature engineering required
-			* Fast to interpret
-			* Outliers have minimal impact.
-			
-			Negatives:
-			* Harder to tune as there are too many hyperparameters.
-			* Difficult interpretation , visualization tough
-			* Overfitting possible if parameters not tuned properly.
-			''')
-		st.header('How each model performed on an f1-score:')
-		st. latex(r'''F1 score = 2 \left(\frac{Precision * Recall}{Pecision + Recall}\right)''')
-		st.info('F1 score is the measure of a tests accuracy or in this case our models accuracy. It is calculated as shown above, where the precision is the number of true positive results is devided by the number of all positive results.')
-		st.image('Images/f1.jfif', use_column_width=False)
-
-		tweet_text = st.text_area("Enter Text","Type here")
-		Logistic = ("lr_model.pkl")
-		Random = ("rfc_model.pkl")
-		Linear = ('lsvc_model.pkl')
-		XGBmodel = ('xgb_model.pkl')
-
-		original_list = [Logistic, Random, Linear, XGBmodel]
-		st.info('''
-		Models:
-		* **LogisticRegression Model** = lr_model.pkl
-		* **RandomForestClassifier Model** = rfc_model.pkl
-		* **LinearSupportVectorClassifier Model** = lsvc_model.pkl
-		* **XGBoosterClassifier** = xgb_model.pkl
-		''')
-		result = st.selectbox('Select the model you want to use:', original_list)
-
-		if st.button("Classify"):
-			# Transforming user input with vectorizer
-			vect_text = tweet_cv.transform([tweet_text])
-			# Load your .pkl file with the model of your choice + make predictions
-			# Try loading in multiple models to give the user a choice
-			predictor = joblib.load(open(os.path.join(result),"rb"))
-			prediction = predictor.predict(vect_text)
-
-			# When model has successfully run, will print prediction
-			# You can use a dictionary or similar structure to make this output
-			# more human interpretable.
-			st.success("Text Categorized as: {}".format(prediction))
-
-		st.info(''' 
-		Categorized as:
-		* **Pro** = 1
-		* **Anti** = -1
-		* **News** = 2
-		* **Neutral** = 0
-		
-		''')
 	
 	# Buidling out the "prediction" page
 	if selection == "Predictions":
