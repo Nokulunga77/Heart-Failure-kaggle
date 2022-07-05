@@ -108,7 +108,8 @@ def main():
 		* **Sex:** sex of the patient [M: Male, F: Female]    
 		* **ChestPainType:** chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]  
 		* **RestingBP:** resting blood pressure [mm Hg]
-		* **Cholesterol:** serum cholesterol [mm/dl]
+		""")
+		st.info(* **Cholesterol:** serum cholesterol [mm/dl]
 		* **FastingBS:** fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
 		* **RestingECG:** resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality , LVH: showing probable or definite left ventricular hypertrophy]
 		* **MaxHR:** maximum heart rate achieved [Numeric value between 60 and 202]
