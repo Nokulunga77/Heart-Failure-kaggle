@@ -99,11 +99,11 @@ def main():
 	
 	# Building out the "Information" page
 	if selection == "Understand your data":
-		#st.title("(EDA), understanding the data!")
+		st.title("Defining the data")
 		#st.image('Images/eda.jpeg', use_column_width=False)
 		#st.dataframe(raw)
 		#st.subheader("Using graphs we can understand the data better, so from here we will look at the type of hashtags being used as well as what the data implies:")
-		st.info("""Defining the data:   
+		st.info("""   
 		* **Age:** age of the patient [years]   
 		* **Sex:** sex of the patient [M: Male, F: Female]    
 		* **ChestPainType:** chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]  
